@@ -1,0 +1,20 @@
+from Compiler.GC.types import sbits
+
+sb320 = sbits.get_type(320) # 20 byte addresses = 320 bits
+
+a_b = sb320(611382286831621467233887798921843936019654057231) # buying DAI address
+a_s = sb320(917551056842671309452305380979543736893630245704) # selling USDC address
+
+b_b = sb320(917551056842671309452305380979543736893630245704) # buying USDC address
+b_s = sb320(611382286831621467233887798921843936019654057231) # buying DAI address
+
+match = ~(a_b ^ b_s) ^ ~(a_s ^ b_b)
+
+def test(actual, expected):
+
+    # you can reveal a number in order to print it
+
+    actual = actual.reveal()
+    print_ln('expected %s, got %s', expected, actual)
+
+test(match, 0)

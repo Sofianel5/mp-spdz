@@ -1,0 +1,22 @@
+from Compiler.GC.types import sbits
+
+sb320 = sbits.get_type(320) # 20 byte addresses = 320 bits
+
+a_b = sb320.get_input_from(0) # player 0 buying address
+a_s = sb320.get_input_from(0) # player 0 selling address
+
+b_b = sb320.get_input_from(1) # player 1 buying address
+b_s = sb320.get_input_from(1) # player 1 selling address
+
+match = ~(a_b ^ b_s) ^ ~(a_s ^ b_b)
+
+def test(actual, expected):
+
+    # you can reveal a number in order to print it
+
+    actual = actual.reveal()
+    print_ln('expected %s, got %s', expected, actual)
+
+out = match.equal(sb320(0))
+
+test(out, 0)
