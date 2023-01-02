@@ -59,7 +59,7 @@ void *IPCSocket::thread_starter(void* obj) {
 }
 
 void IPCSocket::thread_stopper(int sig, siginfo_t *siginfo, void *context) {
-    fprintf(stdout, "received signal %d %d %d", sig, siginfo, context);
+    fprintf(stdout, "received signal %d %d %p", sig, &siginfo, context);
     Instance()->stop();
     exit(0);
 }
