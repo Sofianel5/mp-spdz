@@ -13,7 +13,11 @@ IPCSocket* IPCSocket::Instance() {
   return instance_;
 }
 
-IPCSocket::IPCSocket() : pid_(0), sockfd_(0), curr_sock_fd_(0), socket_path_("/tmp/mp-spdz.sock") {
+IPCSocket::IPCSocket() : 
+    pid_(0), 
+    socket_path_("/tmp/mp-spdz.sock"), 
+    sockfd_(0), 
+    curr_sock_fd_(0) {
   pthread_mutex_init(&mutex_, NULL);
 }
 
@@ -55,12 +59,9 @@ void *IPCSocket::thread_starter(void* obj) {
 }
 
 void IPCSocket::thread_stopper(int sig, siginfo_t *siginfo, void *context) {
+    fprintf(stdout, "received signal %d %d %d", sig, siginfo, context);
     Instance()->stop();
     exit(0);
-}
-
-void IPCSocket::set_socket_action(void (*action)(int, siginfo_t*, void*)) {
-  
 }
 
 void *IPCSocket::run_server() {

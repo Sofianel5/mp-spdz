@@ -15,7 +15,7 @@ class IPCSocket {
   bool start();
   void stop();
   void set_socket_path(const std::string& path);
-  void set_socket_action(void (*action)(int, siginfo_t*, void*));
+//   void set_socket_action(void (*action)(int, siginfo_t*, void*));
 
   enum {
     MAX_BACKLOG = 20,
