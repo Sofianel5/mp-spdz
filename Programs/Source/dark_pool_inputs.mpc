@@ -10,13 +10,13 @@ b_s = sb320.get_input_from(1) # player 1 selling address
 
 match = ~(a_b ^ b_s) ^ ~(a_s ^ b_b)
 
-def test(actual, expected):
+def reveal_match(output):
 
     # you can reveal a number in order to print it
 
-    actual = actual.reveal()
-    print_ln('expected %s, got %s', expected, actual)
+    output = output.reveal()
+    print_ln('Protocol match?: ', output)
 
 out = match.equal(sb320(0))
 
-test(out, 0)
+reveal_match(out)
