@@ -15,7 +15,7 @@ def reveal_match(output):
     # you can reveal a number in order to print it
 
     output = output.reveal()
-    print_ln('Protocol match?: ', output)
+    print_ln('Protocol match?: %s (1: match, 0: no match)', output)
 
 out = match.equal(sb320(0))
 
