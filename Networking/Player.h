@@ -1,5 +1,6 @@
 #ifndef _Player
 #define _Player
+#define DEBUG_NETWORKING
 
 /* Class to create a player, for KeyGen, Offline and Online phases.
  *
