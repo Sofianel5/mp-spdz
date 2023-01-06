@@ -15,7 +15,7 @@ def reveal_match(output):
     # you can reveal a number in order to print it
 
     output = output.reveal()
-    print_ln(output)
+    print_ln("%s", output)
 
 out = match.equal(sb320(0))
 
